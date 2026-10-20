@@ -107,15 +107,12 @@ def test_history(testbot):
 
 
 def test_plugin_cycle(testbot):
-    plugins = [
-        "errbotio/err-helloworld",
-    ]
+    plugins = ["errbotio/err-helloworld"]
 
     for plugin in plugins:
         testbot.assertInCommand(
-            f"!repos install {plugin}",
-            f"Installing {plugin}..."
-        ),
+            f"!repos install {plugin}", f"Installing {plugin}..."
+        )
         assert (
             "A new plugin repository has been installed correctly from errbotio/err-helloworld"
             in testbot.pop_message(timeout=60)
